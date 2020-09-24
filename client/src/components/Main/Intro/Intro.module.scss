@@ -1,0 +1,156 @@
+@import '../../../styles/global';
+
+.intro {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  &:before {
+    content: "";
+    border-top: 1px dashed;
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+  }
+
+  &.projectIsVisible {
+    height: 15vh;
+
+    .intro_logo {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: 250ms;
+      transform-origin: center;
+
+      &:hover {
+        & :local {
+          animation-name: pulse !important;
+          animation-duration: 1s !important;
+          animation-fill-mode: forwards !important;
+        }
+      }
+
+      a {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    .intro_copy {
+      opacity: 0;
+      transition: opacity 200ms;
+    }
+  }
+
+  .intro_logo {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    z-index: 1;
+    border-radius: 100%;
+    overflow: hidden;
+
+    a {
+      display: flex;
+      width: 65px;
+      height: 65px;
+      transition: 250ms;
+
+      @include breakpoint("medium") {
+        width: 85px;
+        height: 85px;
+      }
+
+      @include breakpoint("md-large") {
+        width: 110px;
+        height: 110px;
+      }
+
+      &:hover {
+        transform-origin: center;
+        transform: scale(1.08);
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .intro_copy {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    opacity: 1;
+    transition: opacity 500ms;
+    transition-delay: 500ms;
+    flex-direction: column;
+    text-align: justify;
+    padding: 0 25px;
+    box-sizing: border-box;
+
+    @include breakpoint("medium") {
+      padding: 0 60px;
+    }
+
+    @include breakpoint("x-large") {
+      padding: 0 150px;
+    }
+
+    h1 {
+      a {
+        text-decoration: none;
+        color: inherit;
+        z-index: 0;
+        position: relative;
+        display: inline-block;
+        font-size: inherit;
+
+        span {
+          position: relative;
+
+          &:after {
+            content: "";
+            border-bottom: 2px dashed;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 105%;
+          }
+        }
+
+        &:before {
+          content: "";
+          display: block;
+          width: 0;
+          height: 40px;
+          transition: 300ms;
+          background-color: yellow;
+          position: absolute;
+          top: 24px;
+          left: -11px;
+          transform: rotate(-6deg);
+          z-index: -1;
+          transform-origin: left;
+        }
+
+        &:hover {
+          &:before {
+            width: 110%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {  transform: translate(-50%, -50%) scale(1); }
+  40% { transform: translate(-50%, -50%) scale(1.15); }
+  60% { transform: translate(-50%, -50%) scale(1); }
+  70% { transform: translate(-50%, -50%) scale(1.05); }
+  100% {transform: translate(-50%, -50%) scale(1); }
+}

@@ -1,0 +1,47 @@
+@import '../../../../../styles/global';
+
+.projectBody {
+  padding: 20px 10px 20px;
+  transition: 1100ms;
+
+  @include breakpoint('md-large') {
+    padding: 20px 20px 40px;
+  }
+
+  section {
+    &.projectBody_copy {
+      p {
+        width: 95%;
+        margin: 0 auto;
+        display: block;
+        padding: 10px;
+        position: relative;
+        z-index: 1;
+
+        @include breakpoint('md-large') {
+          padding: 20px;
+        }
+      }
+    }
+
+    &.projectBody_img {
+      margin: 0 auto;
+      display: block;
+      width: 90%;
+
+      img {
+        padding: 20px 10px;
+        box-sizing: border-box;
+        width: 100%;
+
+        @include breakpoint('md-large') {
+          padding: 30px 10px;
+        }
+
+        @include breakpoint('x-large') {
+          width: 50%;
+        }
+      }
+    }
+  }
+}

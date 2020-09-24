@@ -1,0 +1,115 @@
+@import '../../../../../styles/global.scss';
+
+.projectHeader {
+  opacity: 1;
+  transition: 900ms;
+  border-bottom: 1px dotted gray;
+
+  &.pageTransition {
+    opacity: 0;
+  }
+
+  .projectHeader_header {
+    height: 80vh;
+    max-height: 225px;
+    overflow: hidden;
+    position: relative;
+
+    @include breakpoint('md-large') {
+      max-height: 350px;
+    }
+
+    .projectHeader_headerImg {
+      position: absolute;
+      width: 125%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .projectHeader_headerTitle {
+      position: absolute;
+      bottom: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      @include breakpoint('md-large') {
+        padding: 20px 20px 50px 40px;
+      }
+
+      h1 {
+        font-size: 22px;
+        margin: 0 0 10px;
+        position: relative;
+        z-index: 1;
+
+        @include breakpoint('md-large') {
+          font-size: 34px;
+        }
+
+        &:before {
+          content: "";
+          display: block;
+          height: 35px;
+          transition: 300ms;
+          background-color: #fdf141;
+          position: absolute;
+          top: 0;
+          left: -18px;
+          width: calc(100% + 36px);
+          transform: rotate(-3deg);
+          z-index: -1;
+          transform-origin: center;
+
+          @include breakpoint('md-large') {
+            height: 50px;
+          }
+        }
+      }
+
+      h3 {
+        font-size: 18px;
+        margin: 0;
+        position: relative;
+        z-index: 1;
+
+        @include breakpoint('md-large') {
+          font-size: 24px;
+        }
+
+        &:before {
+          content: "";
+          display: block;
+          width: 110%;
+          height: 35px;
+          transition: 300ms;
+          background-color: #fdf141;
+          position: absolute;
+          top: 0px;
+          left: -11px;
+          width: calc(100% + 22px);
+          transform: rotate(-1.3deg);
+          z-index: -1;
+          transform-origin: left;
+
+          @include breakpoint('md-large') {
+            height: 40px;
+          }
+        }
+      }
+    }
+  }
+
+  .projectHeader_details {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px 0px;
+
+    @include breakpoint('md-large') {
+      padding: 15px 0 20px;
+    }
+  }
+}

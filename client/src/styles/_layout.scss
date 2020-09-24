@@ -1,0 +1,33 @@
+  .container {
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+    min-width: 305px;
+    box-sizing: border-box;
+
+    @include breakpoint(small) {
+        width: 320px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    @include breakpoint(medium) {
+        width: 445px;
+    }
+
+    @include breakpoint(large) {
+        width: 600px;
+    }
+
+    @include breakpoint(md-large) {
+        width: 730px;
+    }
+
+    @include breakpoint(x-large) {
+        width: 970px;
+    }
+
+    @include breakpoint(xx-large) {
+        width: 1300px;
+    }
+}

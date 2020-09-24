@@ -1,0 +1,155 @@
+@import '../../../../styles/global.scss';
+
+.projectsMenu {
+  opacity: 1;
+  height: 100%;
+  transition: 1s;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 20px;
+  justify-content: center;
+
+  &__mini {
+    padding: 12px;
+    justify-content: space-evenly;
+    flex-direction: column;
+    z-index: 3;
+    background-color: #ffffff;
+
+    &:after {
+      content: '';
+      border-right: 1px dashed;
+      position: absolute;
+      right: 0;
+      transform: translateY(-50%);
+      top: 50%;
+      height: 95vh;
+      z-index: 2;
+    }
+
+    .projectTile {
+      margin: 10px 0 !important;
+      flex: 10% 0 !important;
+
+      .logo {
+        & :local {
+          animation-name: fadeIn !important;
+          animation-duration: 1s !important;
+          animation-fill-mode: forwards !important;
+        }
+      }
+
+      .title {
+        & :local {
+          animation-name: fadeOut !important;
+          animation-duration: 1s !important;
+          animation-fill-mode: forwards !important;
+        }
+      }
+    }
+  }
+
+  .projectTile {
+    border: 10px solid white;
+    box-sizing: border-box;
+    flex: 100% 0;
+    max-width: 425px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+
+    @include breakpoint('md-large') {
+      flex: 50% 0;
+    }
+
+    &:hover {
+      .image {
+        filter: grayscale(100%);
+      }
+
+      > div {  
+        .title {
+          &:after {
+            content: "";
+            display: block;
+            height: 37px;
+            background-color: #fdf141;
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: rotate(-3deg) translateX(-50%);
+            z-index: -1;
+            width: 150%;
+          }
+        }
+      }
+    }
+
+    .image {
+      height: 175%;
+      @include centre();
+      transform: translate(-50%, -50%);
+      transition: 250ms;
+      filter: grayscale(0%);
+    }
+
+    > div {
+      position: relative;
+
+      .title {
+        position: relative;
+        color: black;
+        z-index: 2;
+
+        &:after {
+          content: "";
+          transition: 250ms;
+          display: block;
+          height: 37px;
+          background-color: #fdf141;
+          position: absolute;
+          top: -12px;
+          left: 50%;
+          transform: rotate(-3deg) translateX(-50%);
+          z-index: -1;
+          width: 150%;
+        }
+      }
+    }
+
+    .btn {
+      position: absolute;
+      bottom: 5%;
+      right: 8%;
+      padding: 10px;
+      z-index: 2;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+}

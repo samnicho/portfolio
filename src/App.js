@@ -1,26 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+const express = require('express'); //require express
+require('../db/mongoose'); // require the mongoose.js file (automatically connects to the db)
+const projectRouter = require('../routers/project'); 
+const connectDetailsRouter = require('../routers/connectDetails');
+const pageContentRouter = require('../routers/pageContent');
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const app = express();
 
-export default App;
+// configure express to parse results as JSON
+app.use(express.json());
+
+// tell Express to use the imported Routers
+app.use(projectRouter);
+app.use(connectDetailsRouter);
+app.use(pageContentRouter);
+
+module.exports = app;

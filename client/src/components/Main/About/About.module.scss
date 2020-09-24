@@ -1,0 +1,62 @@
+.about {
+  text-align: justify;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+  &:before {
+    content: "";
+    border-top: 1px dashed;
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+
+  .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: 500ms;
+    z-index: 1;
+
+    i {
+      font-size: 30px;
+      color: #3e3e3e;
+      transition: 250ms;
+      transform-origin: center;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  h2 {
+    width: 80%;
+  }
+
+  .footer {
+    width: 90%;
+    padding-bottom: 25px;
+  }
+
+  &.projectIsVisible {
+    height: 15vh;
+
+    .icon {
+      opacity: 1;
+      transition: 500ms;
+    }
+
+    h2, .footer {
+      opacity: 0;
+      transition: opacity 200ms;
+    }
+  }
+}

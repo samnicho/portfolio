@@ -1,0 +1,95 @@
+// MEDIA QUERY BREAKPOINTS
+// -------------------------------------------------------
+// small      320px  - (content: 295px)  - 479px 
+// medium	  480px  - (content: 455px)  - 639px 
+// large      640px  - (content: 600px)  - 767px 
+// md-large	  768px  - (content: 730px)  - 1023px 
+// x-large    1024px - (content: 970px)  - 1365px 
+// xx-large	  1366px - (content: 1300px) - 1919px
+// xxx-large  1920px - (content: 1800px)
+
+@mixin breakpoint($min: 0, $max: 0) {
+    $min-type: type-of($min);
+    $max-type: type-of($max);
+    $max-width: 0;
+
+    //set max-width variable for min-max and max-width queries
+    @if $max-type == string {      
+        @if $max == small { $max-width: 479px }
+        @else if $max == medium { $max-width: 639px }
+        @else if $max == large { $max-width: 767px }
+        @else if $max == md-large { $max-width: 1023px }
+        @else if $max == x-large { $max-width: 1365px }
+        @else if $max == xx-large { $max-width: 1919px }
+    }
+
+    // Set min-width and min-max queries
+    @if $min-type == string {
+        @if $min == small {
+            @if $max-type == string { 
+                @media (min-width: 320px) and (max-width: $max-width) { @content; }
+            }
+            @else {
+                @media (min-width: 320px) { @content; }
+            }
+        }
+        @else if $min == medium {
+            @if $max-type == string { 
+                @media (min-width: 480px) and (max-width: $max-width) { @content; }
+            }
+            @else {
+                @media (min-width: 480px) { @content; }
+            }
+        }    
+        @else if $min == large {
+            @if $max-type == string { 
+                @media (min-width: 640px) and (max-width: $max-width) { @content; }
+            }
+            @else {
+                @media (min-width: 640px) { @content; }
+            }
+        }
+        @else if $min == md-large {
+            @if $max-type == string {
+                @media (min-width: 768px) and (max-width: $max-width) { @content; }
+            }
+            @else {
+                @media (min-width: 768px) { @content; }
+            }
+        }    
+        @else if $min == x-large {
+            @if $max-type == string { 
+                @media (min-width: 1024px) and (max-width: $max-width) { @content; }
+            }
+            @else {
+                @media (min-width: 1024px) { @content; }
+            }
+        }    
+        @else if $min == xx-large {
+            @if $max-type == string { 
+                @media (min-width: 1366px) and (max-width: $max-width) { @content; }
+            }
+            @else {
+                @media (min-width: 1366px) { @content; }
+            }
+        }
+        @else if $min == xxx-large {
+            @if $max-type == string { 
+                @media (min-width: 1920px) and (max-width: $max-width) { @content; }
+            }
+            @else {
+                @media (min-width: 1920px) { @content; }
+            }
+        }
+
+        // Otherwise pass a warning to the compiler as to the appropriate options
+        @else {
+            @warn "The breakpoint mixin supports the following attributes: small, medium, large, md-large, x-large, xx-large, xxx-large";
+        }
+    }
+
+    // Set max-width queries
+    @else if $min-type == number {   
+        @media (max-width: $max-width) { @content; }
+    }
+}

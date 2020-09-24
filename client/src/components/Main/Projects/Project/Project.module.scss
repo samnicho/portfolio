@@ -1,0 +1,11 @@
+@import '../../../../styles/global';
+
+.projectWrapper {
+  .projectWrapper_inner {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 25px;
+    overflow-y: scroll;
+    position: relative;
+  }
+}
