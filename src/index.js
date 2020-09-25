@@ -1,4 +1,4 @@
-const path = require('path');
+// const path = require('path');
 const express = require('express'); //require express
 require('../db/mongoose'); // require the mongoose.js file (automatically connects to the db)
 const projectRouter = require('../routers/project'); 
@@ -7,12 +7,12 @@ const pageContentRouter = require('../routers/pageContent');
 
 const app = express();
 const port = process.env.PORT || 5000;
-const publicDirectoryPath = path.join(__dirname, '../client/build')
+// const publicDirectoryPath = path.join(__dirname, '../client/build')
 
-app.use(express.static(publicDirectoryPath))
+// app.use(express.static(publicDirectoryPath))
 
 // configure express to parse results as JSON
-// app.use(express.json());
+app.use(express.json());
 
 // tell Express to use the imported Routers
 app.use(projectRouter);
