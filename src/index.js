@@ -12,7 +12,7 @@ const publicDirectoryPath = path.join(__dirname, '../client/build')
 app.use(express.static(publicDirectoryPath))
 
 // configure express to parse results as JSON
-// app.use(express.json());
+app.use(express.json());
 
 // tell Express to use the imported Routers
 app.use(projectRouter);
