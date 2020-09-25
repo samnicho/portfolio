@@ -7,7 +7,7 @@ const pageContentRouter = require('../routers/pageContent');
 
 const app = express();
 const port = process.env.PORT || 5000;
-const publicDirectoryPath = path.join(__dirname, '../client/public')
+const publicDirectoryPath = path.join(__dirname, '../client/src/index.js')
 
 app.use(express.static(publicDirectoryPath))
 
