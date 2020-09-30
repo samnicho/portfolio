@@ -18,15 +18,17 @@
     z-index: 3;
     background-color: #ffffff;
 
-    &:after {
-      content: '';
-      border-right: 1px dashed;
-      position: absolute;
-      right: 0;
-      transform: translateY(-50%);
-      top: 50%;
-      height: 95vh;
-      z-index: 2;
+    @include breakpoint('md-large') { 
+      &:after {
+        content: '';
+        border-right: 1px dashed;
+        position: absolute;
+        right: -1px;
+        transform: translateY(-50%);
+        top: 50%;
+        height: 95vh;
+        z-index: 2;
+      }
     }
 
     .projectTile {
@@ -71,23 +73,6 @@
       .image {
         filter: grayscale(100%);
       }
-
-      > div {  
-        .title {
-          &:after {
-            content: "";
-            display: block;
-            height: 37px;
-            background-color: #fdf141;
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: rotate(-3deg) translateX(-50%);
-            z-index: -1;
-            width: 150%;
-          }
-        }
-      }
     }
 
     .image {
@@ -110,10 +95,10 @@
           content: "";
           transition: 250ms;
           display: block;
-          height: 37px;
-          background-color: #fdf141;
+          height: 40px;
+          background-color: $highlighter;
           position: absolute;
-          top: -12px;
+          top: -10px;
           left: 50%;
           transform: rotate(-3deg) translateX(-50%);
           z-index: -1;

@@ -54,7 +54,7 @@
           display: block;
           height: 35px;
           transition: 300ms;
-          background-color: #fdf141;
+          background-color: $highlighter;
           position: absolute;
           top: 0;
           left: -18px;
@@ -82,10 +82,9 @@
         &:before {
           content: "";
           display: block;
-          width: 110%;
-          height: 35px;
+          height: 110%;
           transition: 300ms;
-          background-color: #fdf141;
+          background-color: $highlighter;
           position: absolute;
           top: 0px;
           left: -11px;
@@ -106,7 +105,12 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
+    flex-direction: column;
     padding: 10px 0px;
+
+    @include breakpoint('medium') {
+      flex-direction: row;
+    }
 
     @include breakpoint('md-large') {
       padding: 15px 0 20px;

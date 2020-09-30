@@ -1,7 +1,9 @@
+@import "../../../styles/global.scss";
+
 .about {
   text-align: justify;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
   position: relative;
@@ -25,6 +27,14 @@
     transition: 500ms;
     z-index: 1;
 
+    &:hover {
+      & :local {
+        animation-name: pulse !important;
+        animation-duration: 1s !important;
+        animation-fill-mode: forwards !important;
+      }
+    }
+
     i {
       font-size: 30px;
       color: #3e3e3e;
@@ -37,8 +47,25 @@
     }
   }
 
-  h2 {
+  h3 {
     width: 80%;
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint(0, "medium") {
+      width: 95%;
+      padding: 30px 0 20px;
+      font-size: 16px;
+    }
+
+    a {
+      font-size: inherit;
+      padding-top: 25px;
+
+      i {
+        padding-right: 10px;
+      }
+    }
   }
 
   .footer {
@@ -54,9 +81,28 @@
       transition: 500ms;
     }
 
-    h2, .footer {
+    h3,
+    .footer {
       opacity: 0;
       transition: opacity 200ms;
     }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  40% {
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+  60% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
   }
 }

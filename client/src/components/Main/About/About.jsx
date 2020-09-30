@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Footer from '../Footer/FooterContainer';
 import styles from './About.module.scss';
 
 const About = ({ projectIsVisible, setProjectIsVisible, loading, bio }) => {
@@ -8,13 +9,18 @@ const About = ({ projectIsVisible, setProjectIsVisible, loading, bio }) => {
       <Link to={'/#about'} onClick={() => setProjectIsVisible(false)} className={styles.icon}>
         <i className="fa fa-address-card" />
       </Link>
-      <h2>
+      <h3>
         {
           !loading && (
             bio[0]
           )
         }
-      </h2>
+        <a href="/files/Sam Nicholson CV | samnicho@gmail.com.pdf" download>
+          <i className="fa fa-arrow-circle-down"></i>
+          download my CV
+        </a>
+      </h3>
+      <Footer />
     </section>
   );
 };

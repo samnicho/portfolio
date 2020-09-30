@@ -9,7 +9,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 const publicDirectoryPath = path.join(__dirname, '../client/build')
 
-app.use(express.static(publicDirectoryPath))
+app.use(express.static(publicDirectoryPath));
 
 // configure express to parse results as JSON
 app.use(express.json());

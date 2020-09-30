@@ -21,6 +21,15 @@
         @include breakpoint('md-large') {
           padding: 20px;
         }
+
+        &:nth-child(odd) {
+          padding: 10px 10px 0 10px;
+  
+          @include breakpoint('md-large') {
+            padding: 20px 20px 0 20px;
+          }
+
+        }
       }
     }
 

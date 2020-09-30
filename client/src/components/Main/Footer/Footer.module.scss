@@ -1,29 +1,62 @@
+@import "../../../styles/global.scss";
+
 .footer {
-    padding: 25px 0 5px;
-    text-align: center;
-    width: 100%;
+  padding: 20px 0 0;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  border-top: 1px dashed;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  @include breakpoint("large") {
+    flex-direction: row;
+    padding: 25px 15px 5px;
+  }
+
+  .footer_contact {
     display: flex;
-    justify-content: space-evenly;
-    border-top: 1px dashed;
+    flex: 75% 0;
+    justify-content: flex-start;
+    flex-direction: column;
 
-    .footer_contact {
-        display: flex;
-        flex: 50% 0;
-        justify-content: space-evenly;
-
-        a {
-            color: black;
-            text-decoration: none;
-
-            i {
-                margin-right: 5px;
-            }
-        }
+    @include breakpoint("large") {
+      flex-direction: row;
     }
 
-    .footer_links {
-        display: flex;
-        flex: 50% 0;
-        justify-content: space-evenly;
+    a {
+      color: black;
+      text-decoration: none;
+      padding: 10px 5px;
+
+      @include breakpoint("large") {
+        padding: 0 10% 0 5px;
+      }
+
+      i {
+        margin-right: 5px;    
+        font-size: 18px;
+      }
     }
+  }
+
+  .footer_links {
+    display: flex;
+    flex: 25% 0;
+    justify-content: center;
+
+    @include breakpoint("large") {
+      justify-content: flex-end;
+    }
+
+    a {
+      padding: 10px 15px;    
+      font-size: 18px;
+
+      @include breakpoint("large") {
+        padding: 0 5px 0 20%;
+      }
+    }
+  }
 }
