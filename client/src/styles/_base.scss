@@ -24,14 +24,14 @@ a {
 }
 
 h1 {
-  font-size: 24px;  
+  font-size: 22px;  
   
   @include breakpoint("medium") {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   @include breakpoint("md-large") {
-    font-size: 32px;
+    font-size: 30px;
   }
 }
 
@@ -50,12 +50,24 @@ h2 {
 h3 {
   font-size: 18px;
 
-  @include breakpoint("md-large") {
+  @include breakpoint("medium") {
     font-size: 20px;
   }
 
   @include breakpoint("md-large") {
     font-size: 24px;
+  }
+}
+
+h4 {
+  font-size: 15px;
+
+  @include breakpoint("medium") {
+    font-size: 18px;
+  }
+
+  @include breakpoint("md-large") {
+    font-size: 20px;
   }
 }
 

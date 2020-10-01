@@ -41,6 +41,7 @@ main {
 
     > section:nth-child(3) {
       box-shadow: 3px -1px 3px #616161;
+      z-index: 2;
 
       @include breakpoint('md-large') {
         box-shadow: none;

@@ -9,7 +9,7 @@ const About = ({ projectIsVisible, setProjectIsVisible, loading, bio }) => {
       <Link to={'/#about'} onClick={() => setProjectIsVisible(false)} className={styles.icon}>
         <i className="fa fa-address-card" />
       </Link>
-      <h3>
+      <h4>
         {
           !loading && (
             bio[0]
@@ -19,7 +19,7 @@ const About = ({ projectIsVisible, setProjectIsVisible, loading, bio }) => {
           <i className="fa fa-arrow-circle-down"></i>
           download my CV
         </a>
-      </h3>
+      </h4>
       <Footer />
     </section>
   );

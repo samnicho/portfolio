@@ -42,6 +42,7 @@
     .intro_copy {
       opacity: 0;
       transition: opacity 200ms;
+      overflow: hidden;
     }
   }
 
@@ -112,31 +113,11 @@
       @include breakpoint("x-large") {
         padding-top: 15%;
       }      
-      
-      > span {
-        position: relative;
-        z-index: -1;
-        display: inline-block;
-
-        &:before {
-          content: "";
-          display: block;
-          width: 25px;
-          height: 11px;
-          padding: 5px;
-          // background-color: yellow;
-          position: absolute;
-          top: 9px;
-          right: -10px;
-          transform: rotate(-27deg);
-          z-index: -1;
-        }
-      }
 
       a {
         text-decoration: none;
         color: inherit;
-        z-index: -1;
+        z-index: 0;
         position: relative;
         display: inline-block;
         font-size: inherit;
@@ -180,6 +161,22 @@
 
   .intro_note {
     align-self: flex-end;
+    position: relative;
+    z-index: 1;
+
+    &:after {
+      content: "";
+      transition: 250ms;
+      display: block;
+      height: 130%;
+      background-color: $highlighter;
+      position: absolute;
+      top: -35%;
+      left: 50%;
+      transform: rotate(-3deg) translateX(-50%);
+      z-index: -1;
+      width: 120%;
+    }
 
     @include breakpoint('md-large') {
       width: 70%;
