@@ -14,7 +14,7 @@ const ProjectDetail = ({ label, detail, url }) => {
             <div className={styles.projectHeader_detail}>
                 {
                     url ? (
-                        <a href={url}>{detail}</a>
+                        <a href={url} target="_blank">{detail}</a>
                     ) :
                         (
                             <p>{detailText}</p>
