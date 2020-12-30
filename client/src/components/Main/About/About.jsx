@@ -15,7 +15,7 @@ const About = ({ projectIsVisible, setProjectIsVisible, loading, bio }) => {
             bio[0]
           )
         }
-        <a href="/files/Sam Nicholson CV | samnicho@gmail.com.pdf" download>
+        <a href="/files/Sam Nicholson CV.pdf" download>
           <i className="fa fa-arrow-circle-down"></i>
           download my CV
         </a>
